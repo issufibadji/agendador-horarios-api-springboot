@@ -2,6 +2,10 @@
 
 API REST para gerenciamento de agendamentos de horários, desenvolvida com Spring Boot 4 e banco de dados H2 em memória.
 
+## Arquitetura
+
+![Arquitetura do Projeto](src/img/arquitetura-api.svg)
+
 ## Tecnologias
 
 - Java 25
