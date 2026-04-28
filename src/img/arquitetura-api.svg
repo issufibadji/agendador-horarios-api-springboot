@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="520" font-family="Segoe UI, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="820" height="520" fill="#f8f9fa" rx="12"/>
+
+  <!-- Title -->
+  <text x="410" y="44" text-anchor="middle" font-size="20" font-weight="bold" fill="#212529">Arquitetura - Agendador de Horários (REST API)</text>
+
+  <!-- ==================== NODES ==================== -->
+
+  <!-- Client -->
+  <rect x="30" y="210" width="110" height="60" rx="12" fill="#4caf50"/>
+  <text x="85" y="236" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Client</text>
+  <text x="85" y="254" text-anchor="middle" font-size="11" fill="#e8f5e9">HTTP / JSON</text>
+
+  <!-- AgendamentoController -->
+  <rect x="200" y="195" width="150" height="72" rx="12" fill="#64b5f6"/>
+  <text x="275" y="223" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Agendamento</text>
+  <text x="275" y="240" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Controller</text>
+  <text x="275" y="257" text-anchor="middle" font-size="10" fill="#e3f2fd">@RestController</text>
+
+  <!-- AgendamentoService -->
+  <rect x="410" y="195" width="150" height="72" rx="12" fill="#f9a825"/>
+  <text x="485" y="223" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Agendamento</text>
+  <text x="485" y="240" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Service</text>
+  <text x="485" y="257" text-anchor="middle" font-size="10" fill="#fff9c4">@Service</text>
+
+  <!-- Agendamento Entity -->
+  <rect x="630" y="195" width="150" height="72" rx="12" fill="#ef9a9a"/>
+  <text x="705" y="219" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Agendamento</text>
+  <text x="705" y="236" text-anchor="middle" font-size="12" fill="white">(Entity / Model)</text>
+  <text x="705" y="253" text-anchor="middle" font-size="10" fill="#fff">@Entity / JPA</text>
+  <text x="705" y="265" text-anchor="middle" font-size="10" fill="#fff">Spring Data</text>
+
+  <!-- AgendamentoRepository -->
+  <rect x="380" y="68" width="210" height="68" rx="12" fill="#00897b"/>
+  <text x="485" y="94" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Agendamento</text>
+  <text x="485" y="111" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Repository</text>
+  <text x="485" y="127" text-anchor="middle" font-size="10" fill="#b2dfdb">extends JpaRepository&lt;Agendamento, Long&gt;</text>
+
+  <!-- H2 Database -->
+  <rect x="410" y="360" width="150" height="68" rx="12" fill="#37474f"/>
+  <text x="485" y="390" text-anchor="middle" font-size="13" font-weight="bold" fill="white">H2 Database</text>
+  <text x="485" y="407" text-anchor="middle" font-size="11" fill="#b0bec5">in-memory</text>
+  <text x="485" y="421" text-anchor="middle" font-size="10" fill="#78909c">jdbc:h2:mem:agendamentos-db</text>
+
+  <!-- ==================== ARROWS ==================== -->
+
+  <!-- Client → Controller (request) -->
+  <line x1="140" y1="231" x2="198" y2="231" stroke="#388e3c" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <!-- Controller → Client (response) -->
+  <line x1="200" y1="243" x2="142" y2="243" stroke="#1565c0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Controller → Service -->
+  <line x1="350" y1="231" x2="408" y2="231" stroke="#555" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <!-- Service → Controller -->
+  <line x1="410" y1="243" x2="352" y2="243" stroke="#555" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+  <!-- Service → Entity -->
+  <line x1="560" y1="231" x2="628" y2="231" stroke="#555" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <!-- Entity → Service -->
+  <line x1="630" y1="243" x2="562" y2="243" stroke="#555" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+  <!-- Service → Repository (up) -->
+  <line x1="485" y1="195" x2="485" y2="138" stroke="#555" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <!-- Repository → Service (down) -->
+  <line x1="497" y1="136" x2="497" y2="193" stroke="#555" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+  <!-- Dependency Injection label -->
+  <text x="510" y="168" font-size="10" fill="#c62828" font-style="italic">Dependency</text>
+  <text x="510" y="181" font-size="10" fill="#c62828" font-style="italic">Injection</text>
+  <line x1="508" y1="162" x2="499" y2="138" stroke="#c62828" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowRed)"/>
+
+  <!-- Service → H2 (down) -->
+  <line x1="477" y1="267" x2="477" y2="358" stroke="#555" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <!-- H2 → Service (up) -->
+  <line x1="493" y1="358" x2="493" y2="268" stroke="#555" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+  <!-- ==================== LABELS ON ARROWS ==================== -->
+
+  <!-- HTTPS request/response labels -->
+  <text x="168" y="226" text-anchor="middle" font-size="9" fill="#388e3c">request</text>
+  <text x="168" y="252" text-anchor="middle" font-size="9" fill="#1565c0">response</text>
+
+  <!-- JPA label -->
+  <text x="455" y="320" font-size="10" fill="#555" font-style="italic">JPA / Hibernate</text>
+
+  <!-- ==================== ARROWHEAD MARKERS ==================== -->
+  <defs>
+    <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#388e3c"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1565c0"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#c62828"/>
+    </marker>
+  </defs>
+
+  <!-- ==================== LEGEND ==================== -->
+  <rect x="30" y="370" width="330" height="120" rx="10" fill="white" stroke="#dee2e6" stroke-width="1"/>
+  <text x="195" y="392" text-anchor="middle" font-size="13" font-weight="bold" fill="#212529">Legenda</text>
+
+  <rect x="48" y="402" width="16" height="16" rx="4" fill="#64b5f6"/>
+  <text x="72" y="415" font-size="11" fill="#333">Controller — recebe e roteia requisições HTTP</text>
+
+  <rect x="48" y="425" width="16" height="16" rx="4" fill="#f9a825"/>
+  <text x="72" y="438" font-size="11" fill="#333">Service — regras de negócio e validações</text>
+
+  <rect x="48" y="448" width="16" height="16" rx="4" fill="#00897b"/>
+  <text x="72" y="461" font-size="11" fill="#333">Repository — acesso a dados via Spring Data JPA</text>
+
+  <rect x="48" y="471" width="16" height="16" rx="4" fill="#ef9a9a"/>
+  <text x="72" y="484" font-size="11" fill="#333">Entity — modelo mapeado pelo Hibernate</text>
+
+</svg>
